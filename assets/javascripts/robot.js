@@ -4,12 +4,10 @@
     this.x = x;
     this.y = y;
     this.orientation = orientation;
-    console.log( this.x + ' ' + this.y + ' ' + this.orientation);
     return this;
   }
 
   Robot.prototype.report = function() {
-    console.log( this.x + ' ' + this.y + ' ' + this.orientation);
     return this;
   }
 
@@ -19,67 +17,76 @@
 
   Robot.prototype.move = function() {
     var currentPosition = this.get();
+    var currentX = 0;
+    var currentY = 0;
     switch (currentPosition.orientation) {
       case 'NORTH':
-        this.tryToMove(currentPosition.x, currentPosition.y + 1, currentPosition.orientation);
+        currentX = currentPosition.x;
+        currentY = currentPosition.y + 1;
         break;
       case 'SOUTH':
-        this.tryToMove(currentPosition.x, currentPosition.y - 1, currentPosition.orientation);
+        currentX = currentPosition.x;
+        currentY = currentPosition.y - 1;
         break;
       case 'WEST':
-        this.tryToMove(currentPosition.x - 1, currentPosition.y, currentPosition.orientation);
+        currentX = currentPosition.x - 1;
+        currentY = currentPosition.y;
         break;
       case 'EAST':
-        this.tryToMove(currentPosition.x + 1, currentPosition.y, currentPosition.orientation);
+        currentX = currentPosition.x + 1;
+        currentY = currentPosition.y;
         break;
     }
+    this.tryToMove(currentX, currentY, currentPosition.orientation);
   }
 
   Robot.prototype.right = function() {
     var currentPosition = this.get();
+    var currentOrientation = '';
     switch (currentPosition.orientation) {
       case 'NORTH':
-        this.tryToMove(currentPosition.x, currentPosition.y, 'EAST');
+        currentOrientation = 'EAST';
         break;
       case 'SOUTH':
-        this.tryToMove(currentPosition.x, currentPosition.y, 'WEST');
+        currentOrientation = 'WEST';
         break;
       case 'WEST':
-        this.tryToMove(currentPosition.x, currentPosition.y, 'NORTH');
+        currentOrientation = 'NORTH';
         break;
       case 'EAST':
-        this.tryToMove(currentPosition.x, currentPosition.y, 'SOUTH');
+        currentOrientation = 'SOUTH';
         break;
     }
+    this.tryToMove(currentPosition.x, currentPosition.y, currentOrientation);
   }
 
   Robot.prototype.left = function() {
     var currentPosition = this.get();
+    var currentOrientation = '';
     switch (currentPosition.orientation) {
       case 'NORTH':
-        this.tryToMove(currentPosition.x, currentPosition.y, 'WEST');
+        currentOrientation = 'WEST';
         break;
       case 'SOUTH':
-        this.tryToMove(currentPosition.x, currentPosition.y, 'EAST');
+        currentOrientation = 'EAST';
         break;
       case 'WEST':
-        this.tryToMove(currentPosition.x, currentPosition.y, 'SOUTH');
+        currentOrientation = 'SOUTH';
         break;
       case 'EAST':
-        this.tryToMove(currentPosition.x, currentPosition.y, 'NORTH');
+        currentOrientation = 'NORTH';
         break;
     }
+    this.tryToMove(currentPosition.x, currentPosition.y, currentOrientation);
   }
 
 
   Robot.prototype.tryToMove = function(x, y, orientation) {
-    if (x > 4 || x < 0 || y > 4 || y < 0) {
-      //var event = new Event('robotPaused');
-      //// Emit custom event
-			//document.dispatchEvent(event)
-      return false;
+    var maxSteps = 5;
+    var validOrientation = ['NORTH', 'SOUTH', 'EAST', 'WEST'];
+    if (x < maxSteps && x >= 0 && y < maxSteps && y >= 0 && validOrientation.indexOf(orientation) > -1) {
+      this.set(x, y, orientation);
     }
-    this.set(x, y, orientation);
   }
 
   Robot.prototype.report = function() {

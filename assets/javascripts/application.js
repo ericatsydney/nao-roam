@@ -9,33 +9,32 @@
       var xValue = parseInt(x.options[x.selectedIndex].value);
       var yValue = parseInt(y.options[y.selectedIndex].value);
       App.myRobot.tryToMove(xValue,yValue, orientation.options[orientation.selectedIndex].value);
+      App.UI.emitCustomEvent('robotMoved');
     },
     moveOnClick: function(e) {
       e.preventDefault();
       App.myRobot.move();
-      var event = new Event('robotMoved');
-      // Emit custom event
-      document.dispatchEvent(event)
+      App.UI.emitCustomEvent('robotMoved');
     },
     leftOnClick: function(e) {
       e.preventDefault();
       App.myRobot.left();
-      var event = new Event('robotMoved');
-      // Emit custom event
-      document.dispatchEvent(event)
+      App.UI.emitCustomEvent('robotMoved');
     },
     rightOnClick: function(e) {
       e.preventDefault();
       App.myRobot.right();
-      var event = new Event('robotMoved');
-      // Emit custom event
-      document.dispatchEvent(event)
+      App.UI.emitCustomEvent('robotMoved');
     },
     reportOnClick: function(e) {
       e.preventDefault();
       App.myRobot.report();
-      var event = new Event('robotReported');
+      App.UI.emitCustomEvent('robotReported');
+    },
+
+    emitCustomEvent: function(eventName) {
       // Emit custom event
+      var event = new Event(eventName);
       document.dispatchEvent(event)
     },
     init: function() {
@@ -60,7 +59,7 @@
       }, false);
       // Listen for the event.
       document.addEventListener('robotMoved', function (e) {
-        message.innerHTML= 'Successful';
+        //message.innerHTML= 'Successful';
       }, false);
       // Listen for the event.
       document.addEventListener('robotReported', function (e) {

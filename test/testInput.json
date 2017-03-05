@@ -2,19 +2,49 @@
   "testCases": 
   [
     {
-      "id": 0,
-      "title": "Basic test case for PLACE",
-      "spec": "should show expected result",
+      "title": "Dummy test case",
+      "spec": "should always fail.",
       "testInput": 
       [
         "PLACE 0,0,NORTH",
-        "MOVE",
         "REPORT"
       ],
       "output": "0,1,NORTH"
     },
     {
-      "id": 1,
+      "title": "Basic test case for PLACE and MOVE",
+      "spec": "should show expected result",
+      "testInput": 
+      [
+        "PLACE 1,0,NORTH",
+        "MOVE",
+        "REPORT"
+      ],
+      "output": "1,1,NORTH"
+    },
+    {
+      "title": "Boundary test case for PLACE",
+      "spec": "PACE will be ignored",
+      "testInput": 
+      [
+        "PLACE 6,6,NORTH",
+        "REPORT"
+      ],
+      "output": "0,0,NORTH"
+    },
+    {
+      "title": "Boundary test case for MOVE",
+      "spec": "MOVE should be ignored and the following command should be accepted.",
+      "testInput": 
+      [
+        "PLACE 4,4,EAST",
+        "MOVE",
+        "LEFT",
+        "REPORT"
+      ],
+      "output": "4,4,NORTH"
+    },
+    {
       "title": "Basic test case for LEFT",
       "spec": "should show expected result",
       "testInput": 
@@ -26,7 +56,17 @@
       "output": "0,0,WEST"
     },
     {
-      "id": 2,
+      "title": "Basic test case for RIGHT",
+      "spec": "should show expected result",
+      "testInput": 
+      [
+        "PLACE 1,1,NORTH",
+        "RIGHT",
+        "REPORT"
+      ],
+      "output": "1,1,EAST"
+    },
+    {
       "title": "Complicated test case",
       "spec": "should show expected result",
       "testInput": 

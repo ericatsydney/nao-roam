@@ -35,12 +35,11 @@
       var image = new Image();
       image.src = 'assets/images/nao-north.jpg';
       image.onload = function() {
-        robotContext.drawImage(image, 0, -80, 130, 90);
+        robotContext.drawImage(image, 0, -80, 80, 80);
       }
 
       // Listen for the event.
       document.addEventListener('robotMoved', function (e) {
-        console.log(App.myRobot.get());
         App.Canvas.redraw();
       }, false);
     },
@@ -70,8 +69,7 @@
         // Convert the position to canvas axis
         var canvasX = parseInt(currentPosition.x) * stepLength;
         var canvasY = (parseInt(currentPosition.y) + 1) * stepLength * -1;
-        console.log(canvasY);
-        App.Canvas.robotContext.drawImage(image, canvasX, canvasY, 130, 90);
+        App.Canvas.robotContext.drawImage(image, canvasX, canvasY, 80, 80);
       }
     }
   }

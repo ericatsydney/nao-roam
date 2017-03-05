@@ -9,6 +9,8 @@ testCases.forEach(function(testCase) {
   var commands = testCase.testInput;
   describe.only(testCase.title, function() {
     it(testCase.spec, function() {
+      // Reset the robot to starting point.
+      App.myRobot.set(0, 0, 'NORTH');
       var output = testCase.output.split(',');
       var currentX = 0;
       var currentY = 0;
@@ -35,12 +37,11 @@ testCases.forEach(function(testCase) {
             if (commands[i].indexOf('PLACE') === 0) {
               var parameters = commands[i].substring(6);
               var parametersArray = parameters.split(',');
-              App.myRobot.set(parseInt(parametersArray[0]), parseInt(parametersArray[1]), parametersArray[2]);
+              App.myRobot.tryToMove(parseInt(parametersArray[0]), parseInt(parametersArray[1]), parametersArray[2]);
             }
             break;
         }
       }
-      console.log(output);
       assert.equal(output[0], currentX);
       assert.equal(output[1], currentY);
       assert.equal(output[2], currentOrientation);
