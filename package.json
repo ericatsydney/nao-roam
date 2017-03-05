@@ -1,0 +1,13 @@
+{
+  "name": "nao-roam",
+  "version": "0.0.1",
+  "description": "Robot roam application",
+  "main": "application.js",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^3.2.0",
+    "unit.js": "^2.0.0"
+  }
+}
