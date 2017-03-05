@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>
+    Nao Roam
+  </title>
+	<link rel="stylesheet" href="assets/stylesheets/application.css">
+	<meta name="Description" content="This is the toy robot app.">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+</head>
+<body>
+  <div class="header"></div>
+  <div class="content-wrapper">
+    <div class="canvas-wrapper">
+      <canvas id="canvas-table" class="canvas" width="400" height="400">
+      </canvas>
+      <canvas id="canvas-robot" class="canvas" width="400" height="400">
+      </canvas>
+    </div>
+	</div>
+  <div class="side-bar"></div> 
+    <form>
+      <label for="place-x">x</label>
+      <select id="place-x" name="place-x">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <label for="place-y">y</label>
+      <select id="place-y" name="place-y">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <label for="place-orientation">Orientation</label>
+      <select id="place-orientation" name="place-orientation">
+        <option value="NORTH">NORTH</option>
+        <option value="SOUTH">SOUTH</option>
+        <option value="WEST">WEST</option>
+        <option value="EAST">EAST</option>
+      </select>
+      <button id="place-button"/>Place</button> 
+      <br><br>
+      <button id="left-button"/>Turn Left</button> 
+      <button id="right-button"/>Turn Right</button> 
+      <button id="move-button"/>Move Forward</button> 
+      <button id="report-button"/>Report</button> 
+    </form>
+    <div class="robot-says-title">Robot says:</div>
+    <div id="robot-says-content"></div>
+  <div class="footer"></div>
+	<script src="assets/javascripts/canvas.js"></script>
+	<script src="assets/javascripts/robot.js"></script>
+	<script src="assets/javascripts/application.js"></script>
+</body>
+</html>
