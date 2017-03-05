@@ -1,4 +1,5 @@
 (function(window, document, undefined) {
+  App = window.App || {};
   var Robot = function(x, y, orientation) {
     this.x = x;
     this.y = y;
@@ -70,24 +71,18 @@
     }
   }
 
+
   Robot.prototype.tryToMove = function(x, y, orientation) {
     if (x > 4 || x < 0 || y > 4 || y < 0) {
-      var event = new Event('robotPaused');
-      // Emit custom event
-      document.dispatchEvent(event)
+      //var event = new Event('robotPaused');
+      //// Emit custom event
+			//document.dispatchEvent(event)
       return false;
     }
-
     this.set(x, y, orientation);
-    var event = new Event('robotMoved');
-    // Emit custom event
-    document.dispatchEvent(event)
   }
 
   Robot.prototype.report = function() {
-    var event = new Event('robotReported');
-    // Emit custom event
-    document.dispatchEvent(event)
     return this;
   }
 

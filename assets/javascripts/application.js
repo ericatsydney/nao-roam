@@ -13,18 +13,30 @@
     moveOnClick: function(e) {
       e.preventDefault();
       App.myRobot.move();
+      var event = new Event('robotMoved');
+      // Emit custom event
+      document.dispatchEvent(event)
     },
     leftOnClick: function(e) {
       e.preventDefault();
       App.myRobot.left();
+      var event = new Event('robotMoved');
+      // Emit custom event
+      document.dispatchEvent(event)
     },
     rightOnClick: function(e) {
       e.preventDefault();
       App.myRobot.right();
+      var event = new Event('robotMoved');
+      // Emit custom event
+      document.dispatchEvent(event)
     },
     reportOnClick: function(e) {
       e.preventDefault();
       App.myRobot.report();
+      var event = new Event('robotReported');
+      // Emit custom event
+      document.dispatchEvent(event)
     },
     init: function() {
       var buttonsEvents = {

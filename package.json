@@ -6,8 +6,10 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {},
+  "scripts": {
+    "test": "mocha test"
+  },
   "devDependencies": {
     "mocha": "^3.2.0",
-    "unit.js": "^2.0.0"
   }
 }

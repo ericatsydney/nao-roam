@@ -1,0 +1,44 @@
+{
+  "testCases": 
+  [
+    {
+      "id": 0,
+      "title": "Basic test case for PLACE",
+      "spec": "should show expected result",
+      "testInput": 
+      [
+        "PLACE 0,0,NORTH",
+        "MOVE",
+        "REPORT"
+      ],
+      "output": "0,1,NORTH"
+    },
+    {
+      "id": 1,
+      "title": "Basic test case for LEFT",
+      "spec": "should show expected result",
+      "testInput": 
+      [
+        "PLACE 0,0,NORTH",
+        "LEFT",
+        "REPORT"
+      ],
+      "output": "0,0,WEST"
+    },
+    {
+      "id": 2,
+      "title": "Complicated test case",
+      "spec": "should show expected result",
+      "testInput": 
+      [
+        "PLACE 1,2,EAST",
+        "MOVE",
+        "MOVE",
+        "LEFT",
+        "MOVE",
+        "REPORT"
+      ],
+      "output": "3,3,NORTH"
+    }
+  ]
+}
