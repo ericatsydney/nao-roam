@@ -3,6 +3,13 @@
   width: 60%;
   height: 400px;
   position: relative;
+  text-align: center;
+}
+
+.canvas-wrapper {
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
 }
 
 .canvas {
