@@ -9,8 +9,8 @@ testCases.forEach(function(testCase) {
   var commands = testCase.testInput;
   describe.only(testCase.title, function() {
     it(testCase.spec, function() {
-      // Reset the robot to starting point.
-      App.myRobot.set(0, 0, 'NORTH');
+      // Reset the robot to starting point before every individual testing.
+      App.myRobot.reset();
       var output = testCase.output.split(',');
       var currentX = 0;
       var currentY = 0;
